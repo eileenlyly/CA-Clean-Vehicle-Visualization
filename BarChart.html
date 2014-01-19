@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link href="src/nv.d3.css" rel="stylesheet" type="text/css">
+
+<style>
+
+body {
+  overflow-y:scroll;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+#chart1 {
+  height: 500px;
+  margin: 10px;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+</style>
+<body>
+
+  <div id="chart1">
+    <svg></svg>
+  </div>
+
+<script src="src/d3.js"></script>
+<script src="src/nv.d3.js"></script>
+
+<script>var data=[];</script>
+<script src="data/areadata.js"></script>
+<script>
+
+var colors = d3.scale.category10();
+keyColor = function(d, i) {return colors(d.key)};
+
+var chart;
+var parsedate = d3.time.format("%Y.%m").parse;
+nv.addGraph(function() {
+    chart = nv.models.multiBarChart()
+				.x(function(d) { return parsedate(d[0]) })
+                .y(function(d) { return d[1] })
+				.color(keyColor);
+
+    chart.xAxis
+        .showMaxMin(true)
+        .tickFormat(function(d) {return d3.time.format('%b %Y')(new Date(d)) });
+
+    chart.yAxis
+        .tickFormat(d3.format(',.0f'));
+
+    d3.select('#chart1 svg')
+        .datum(data)
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    chart.dispatch.on('stateChange', function(e) { nv.log('New State:', JSON.stringify(e)); });
+
+    return chart;
+});
+
+
+
+
+</script>

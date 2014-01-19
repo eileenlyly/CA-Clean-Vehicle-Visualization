@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<link href="nv.d3.css" rel="stylesheet" type="text/css">
+
+<style>
+
+body {
+  overflow-y:scroll;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+#chart{
+  height: 600px;
+}
+
+</style>
+<body>
+
+  <div id="chart">
+    <svg></svg>
+  </div>
+
+<script src="d3.v2.js"></script>
+<script src="nv.d3.js"></script>
+
+<script>var data=[];</script>
+<script src="areadata.js"></script>
+<script>
+
+var parsedate = d3.time.format("%Y.%m").parse;
+nv.addGraph(function() {
+  var chart = nv.models.stackedAreaChart()
+                .x(function(d) { return parsedate(d[0]) })
+                .y(function(d) { return d[1] })
+                .clipEdge(true);
+
+  chart.xAxis
+      .showMaxMin(false)
+      .tickFormat(function(d) { return d3.time.format('%b %Y')(new Date(d)) });
+
+  chart.yAxis
+      .tickFormat(d3.format(',.2f'));
+
+  d3.select('#chart svg')
+    .datum(data)
+      .transition().duration(500).call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  return chart;
+});
+
+
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+      <title></title>
+      <script type="text/javascript" src="js/d3.v2.min.js"></script>
+      <script type="text/javascript" src="js/d3.geo.js"></script>
+      <script type="text/javascript" src="js/d3.csv.js"></script>
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="js/slider.js"></script>
+      <link type="text/css" rel="stylesheet" href="css/style.css"/>
+      <link type="text/css" rel="stylesheet" href="css/colorbrewer.css"/>
+      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/ui-darkness/jquery-ui.css" />
+      <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+  <div id="container">
+    <div id="top_bar">
+      <h1>Clean Vehicle Market in California</h1>
+    </div>
+	<div id="ca_map" class="Purples"> </div>
+    <div id="bottom_bar">
+        <div id="sliders">
+            <div id="county_state_pop">
+                <div id="county_state_hover_msg">Hover over the map to explore data!</div>
+                <div id="county_state_wrapper">County:&nbsp&nbsp<span id="county_state"></span></div>
+                <div id="pop_wrapper">Pop:&nbsp&nbsp<span id="pop"></span></div>
+            </div>
+            <div class="slider_and_stats_container" id="ev_slider_container">
+                <div class="slider_container">
+                    <div class="slider_label_amount">                        
+                        <b><span id="ev_amount" class="slider_label_range">Range: Mar 2010 - Feb 2013</span></b>					
+                    </div>
+                    <div class="slider_tag" id="ev_slider" style=""></div>
+                    <div class="slider_checkbox_stats">
+                        <span class="info_value" id="info_ev">&nbsp</span>
+                    </div>
+					<label id="ev_label" class="slider_label">Year:</label>
+                </div>
+            </div>
+        </div>
+      
+  </div>
+  <script type="text/javascript" src="js/stats.js"></script>
+  </body>
+</html>

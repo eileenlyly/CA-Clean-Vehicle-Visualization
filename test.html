@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html lang="en">
+<head><meta charset="utf-8" /></head>
+<body>
+<div id="map_canvas" style="float:left;width:800px;height:600px;"></div>
+<button onclick="DataChange()">Data Change</button>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+<script src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script>
+<script>var data=[];</script>
+<script src="https://dl.dropbox.com/u/116288531/final/read_data.js"></script>
+<script>
+//document.write(data.length);
+//var zip=[];
+var lat=[];
+var lng=[];
+var lat2=[];
+var lng2=[];
+for(var i=0;i<data.length;i++){
+if(data[i].date=='2012.03'){
+//zip.push(data[i].zip);
+lat.push(parseFloat(data[i].lat));
+lng.push(parseFloat(data[i].lng));}}
+for(var i=0;i<data.length;i++){
+if(data[i].date=='2012.04'){
+//zip.push(data[i].zip);
+lat2.push(parseFloat(data[i].lat));
+lng2.push(parseFloat(data[i].lng));}}
+//document.write(lat[87]);
+//1Z6s74cWgHrcswJB9cJfcauudds_dGjV0jLPhnRU
+
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=visualization"></script>
+<script type="text/javascript">
+		var heatmapData=[];
+		var heatmap,map;
+		for(var i=0;i<lat.length;i++){
+  			heatmapData.push(new google.maps.LatLng(lat[i],lng[i]));}
+		var heatmapData2 = [];
+		for(var i=0;i<lat2.length;i++){
+  			heatmapData2.push(new google.maps.LatLng(lat2[i],lng2[i]));}
+		var pointArray = new google.maps.MVCArray(heatmapData);
+		function initialize() {
+			var CAMap = {
+          		center: new google.maps.LatLng(36.3,-120.5),
+          		zoom: 6,
+          		mapTypeId: google.maps.MapTypeId.ROADMAP};
+        	map = new google.maps.Map(document.getElementById("map_canvas"),CAMap);
+			
+			heatmap = new google.maps.visualization.HeatmapLayer({
+  				data: pointArray,
+				maxIntensity: 50,
+				gradient: ['transparent','#ff7f0e','#d6616b',' #98df8a'],
+				radius: 30,
+				opacity:0.9});
+			heatmap.setMap(map);}
+		function DataChange(){
+			pointArray.clear();
+			for(var i=0;i<lat2.length;i++){
+  			pointArray.push(new google.maps.LatLng(lat2[i],lng2[i]));}}
+		function RadiusChange(){
+			heatmap.setOptions({radius: (heatmap.get('radius')==30) ? 20 : 30});}
+
+		initialize();
+		document.write(lat2.length);
+</script>
+</html>
