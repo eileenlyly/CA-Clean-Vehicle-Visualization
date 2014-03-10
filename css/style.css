@@ -1,0 +1,245 @@
+body {	
+	font-family: 'Titillium Web', sans-serif;
+	background: url(texture-noise.png);
+	overflow-y:scroll;
+}
+
+#scatter_chart svg {
+	height:390px;
+	width:550px;
+	overflow: hidden;
+}
+
+#area_chart svg{
+	height:500px;
+	width:900px;
+	margin-top: 50px;
+	margin-left: 70px;
+}
+
+#scatter_chart svg text {
+  font: normal 12px Arial;
+}
+
+#scatter_chart svg.title {
+ font: bold 14px Arial;
+}
+
+h1 {
+  text-align: center;
+  border-bottom: 1px dashed rgba(49, 163, 84, 0.5);
+  color: #636363;
+}
+
+#ca_map {
+	position: relative;
+	float:left;
+	height: 550px;
+	#cursor: pointer;
+	#background: #c6dbef;
+}
+
+#scatter_chart{
+	float:left;
+	width: 550px;
+	height:390px;
+	#background: #c6dbef;
+	margin-left: 40px;
+	margin-top: 30px;
+}
+
+.viz_info {
+  font-size: 15pt;
+  padding-bottom: 30px;
+}
+
+#total_ev_wrapper {
+  float: right;
+  font-size: 12pt;
+}
+
+#info_ev {
+  float: right;
+  font-size: 12pt;
+}
+
+.slider_tag {
+  width: 500px;
+  margin-top: 10px;
+  float: left;  
+}
+
+
+.slider_label_amount {
+  padding-bottom: 5px;
+}
+
+#sliders .instructions {
+	font-size: 12px;
+}
+
+#info_slider{
+width:500px;
+}
+.slider_label {
+  font-size:18 px;
+}
+
+.slider_label_range {	
+  font-size:20px;
+	border: 0px;
+	width: 150px;
+	background: none;
+}
+
+.slider_container {
+  width: 400px;
+  float: left;
+  margin-bottom: 5px;
+  margin-left: 80px;
+}
+
+
+#county_state_hover_msg {
+  font-style: italic;
+  padding-bottom: 10px;  
+}
+
+#county_state_pop {
+  width: 500px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  border-bottom: 1px dashed rgb(49,130,189);
+}
+
+#county_state_wrapper {
+  width: 250px;
+  float: left;
+}
+
+#station_wrapper {
+  width: 250px;
+  float: left;
+}
+
+#pop_wrapper {
+  position: relative;
+}
+
+#counties path {
+  stroke: #636363;
+  stroke-width: 0.05px;
+}
+
+.overlap {
+	fill:#000;
+}
+
+.ignore {
+	fill:#eee;
+}
+
+#ev_slider_container p {
+	margin: 5px 0px 5px 0px;
+}
+
+#ev_slider .ui-slider-range {
+	background:rgb(8,81,156);
+}
+
+#ev_slider .ui-state-hover {
+	background:rgb(222,235,247);
+	border:1px solid rgb(8,48,107);
+
+}
+
+#ev_slider .ui-state-focus {
+	background:rgb(222,235,247);
+	border:1px solid rgb(8,48,107);
+}
+
+#ev_slider .ui-slider-handle {
+	border:1px solid rgb(8,48,107);
+}
+
+
+.ui-disabled {
+	opacity:.5;
+}
+
+
+#info {
+	float:left;
+	margin-left: 80px;
+	margin-bottom: 10px;
+}
+
+#county_info {
+	position:relative;
+    background: #111;
+	float:right;
+	width: 46%;
+	padding: 15px;
+	border: 2px solid #336699;
+	border-radius: 15px;
+	height: 410px;
+    color:#ebebeb;
+}
+
+#county_info p {
+	margin-bottom:10px;
+}
+
+.p_additional {
+	font-size:14px;
+}
+
+
+#p_info_pop {
+	position: absolute;
+	top: 55px;
+	left: 250px;
+	padding-right:10px;
+}
+
+#county_info p {
+	font-size: 14px;
+}
+
+#county_info span {
+	font-size:15px;
+}
+
+#info_name {
+	width: 200px;
+}
+
+#container{
+	margin-left:auto;
+	margin-right:auto;
+	position: relative;
+    width: 1000px;
+
+}
+
+.checkbox_label{
+	float:right;
+	padding-top:2px;
+	font-size: 14px;
+	width: 15px;
+	height: 15px;
+}
+
+
+ul#instructions {
+	font-size:12px;
+	margin-bottom:20px;
+}
+
+ul#references {
+	list-style-type:none;
+	font-size:12px;
+	padding-left:25px;
+
+}
+
